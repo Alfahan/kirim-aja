@@ -28,6 +28,11 @@ model User {
   role      Role     @relation(fields: [roleId], references: [id])
 
   @@map("users")
+  employeeBranch EmployeeBranch[]
+  userAddress UserAddress[]
+  shipmentDetail ShipmentDetail[]
+  shipmentHistory ShipmentHistory[]
+  shipmentBranchLog ShipmentBranchLog[]
 }
 
 model Role {
@@ -69,3 +74,160 @@ model RolePermission {
   @@unique([roleId, permissionId])
   @@map("role_permissions")
 }
+
+model Branch {
+  id            Int   @id @default(autoincrement())
+  name          String
+  address       String
+  phoneNumber   String    @map("phone_number")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @default(now()) @map("updated_at")
+
+  @@map("branches")
+  employeeBranch EmployeeBranch[]
+  shipmentHistory ShipmentHistory[]
+  shipmentBranchLog ShipmentBranchLog[]
+}
+
+model EmployeeBranch {
+  id          Int @id @default(autoincrement())
+  userId      Int @map("user_id")
+  branchId    Int @map("branch_id")
+  type        String 
+  created_at  DateTime  @default(now()) @map("created_at")
+  updated_at  DateTime  @default(now()) @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+  branch Branch @relation(fields: [branchId], references: [id])
+
+  @@map("employee_branch")
+}
+
+model UserAddress {
+  id      Int     @id @default(autoincrement())
+  userId  Int     @map("user_id")
+  address String
+  tag     String?
+  label   String?
+  photo   String?
+  latitude Float?
+  longitude Float?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("user_addresses") 
+  shipmentDetail ShipmentDetail[]
+}
+
+model Shipment {
+  id      Int     @id @default(autoincrement())
+  paymentStatus String @map("payment_status")
+  deliveryStatus String? @map("delivery_status")
+  trackingNumber String? @map("tracking_number")
+  qrCodeImage String? @map("qr_code_image")
+  price     Float?
+  distance Float?
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  @@map("shipments")
+
+  shipmentDetail ShipmentDetail[]
+  shipmentHistory ShipmentHistory[]
+  payment Payment[]
+  ShipmentBranchLog ShipmentBranchLog[]
+}
+
+model ShipmentDetail {
+  id              Int     @id @default(autoincrement())
+  shipmentId      Int     @map("shipment_id") @unique
+  userId          Int     @map("user_id")
+  pickupAddressId Int     @map("pickup_address_id")
+  weight          Float?
+  deliveryType    String      @map("delivery_type")
+  destinationAddress  String  @map("destination_address")
+  destinationLatitude Float?  @map("destination_latitude")
+  destinationLongitude Float? @map("destination_longitude")
+  packageType     String      @map("package_type")
+  pickupProof     String?     @map("pickup_proof")
+  receiptProof    String?     @map("receipt_proof")
+  recipientName   String      @map("recipient_name")
+  recipientPhone  String      @map("recipient_phone")
+  // Price Components
+  basePrice       Float?    @map("base_price")
+  weightPrice     Float?    @map("weight_price")
+  distancePrice   Float?    @map("distance_price")
+  
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  shipment  Shipment @relation(fields: [shipmentId], references: [id])
+  user      User    @relation(fields: [userId], references: [id])
+  address   UserAddress @relation(fields: [pickupAddressId], references: [id])
+
+  @@map("shipment_details")
+}
+
+model ShipmentHistory {
+  id          Int     @id @default(autoincrement())
+  shipmentId  Int     @map("shipment_id")
+  userId      Int?    @map("user_id")
+  branchId    Int?    @map("branch_id")
+  status      String
+  description String?
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  shipment  Shipment @relation(fields: [shipmentId], references: [id])
+  user      User?     @relation(fields: [userId], references: [id])
+  branch    Branch?   @relation(fields: [branchId], references: [id])
+
+  @@map("shipment_histories")
+}
+
+model Payment {
+  id            Int     @id @default(autoincrement())
+  shipmentId    Int     @map("shipment_id") @unique
+  externalId    String? @map("external_id")
+  invoiceId     String? @map("invoice_id")
+  paymentMethod String? @map("payment_method")
+  status        String? 
+  invoiceUrl    String? @map("invoice_url")
+  expiryDate    DateTime? @map("expiry_date")
+  
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  shipment Shipment @relation(fields: [shipmentId], references: [id])
+
+  @@map("payments")
+}
+
+model ShipmentBranchLog {
+  id              Int     @id @default(autoincrement())
+  shipmentId      Int     @map("shipment_id")
+  branchId        Int     @map("branch_id")
+  trackingNumber  String  @map("tracking_number")
+  type            String  // 'IN' or 'OUT'
+  status          String  // Current shipment status
+  description     String?
+  scannedByUserId Int     @map("scanned_by_user_id")
+  scanTime        DateTime  @default(now()) @map("scan_time")
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @map("updated_at")
+
+  shipment Shipment @relation(fields: [shipmentId], references: [id])
+  branch Branch @relation(fields: [branchId], references: [id])
+  scannedByUser User @relation(fields: [scannedByUserId], references: [id])
+
+  @@map("shipment_branch_logs")
+
+}
+
+
+
+
