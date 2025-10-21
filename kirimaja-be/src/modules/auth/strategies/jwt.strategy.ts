@@ -12,8 +12,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         });
     }
 
-    async validator(payload: any) {
+    async validate(payload: any) {
         const user = await this.prisma.user.findUnique({
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
             where: { id: payload.sub },
             include: {
                 role: {
@@ -27,5 +28,16 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
                 },
             },
         });
+
+        if (!user) {
+            return null;
+        }
+
+        return {
+            id: user.id,
+            email: user.email,
+            roleId: user.roleId,
+            role: user.role,
+        };
     }
 }
