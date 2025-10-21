@@ -47,7 +47,7 @@ export class PermissionsService {
         );
     }
 
-    async userAllAnyPermission(
+    async userHasAllAnyPermission(
         userId: number,
         permission: string[],
     ): Promise<boolean> {

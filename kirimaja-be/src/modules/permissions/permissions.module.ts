@@ -7,5 +7,6 @@ import { JwtAuthGuard } from '../auth/guard/logged-in-guard';
 @Module({
     controllers: [PermissionsController],
     providers: [PermissionsService, PrismaService, JwtAuthGuard],
+    exports: [PermissionsService],
 })
 export class PermissionsModule {}
