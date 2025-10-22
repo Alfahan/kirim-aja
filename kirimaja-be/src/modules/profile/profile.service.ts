@@ -50,7 +50,7 @@ export class ProfileService {
         }
 
         if (updateProfileDto.name) {
-            updatedData.email = updateProfileDto.name;
+            updatedData.name = updateProfileDto.name;
         }
 
         if (updateProfileDto.phone_number) {
@@ -62,10 +62,11 @@ export class ProfileService {
         }
 
         if (updateProfileDto.password) {
-            updatedData.password = await bcrypt.hash(
+            const hashedPassword = await bcrypt.hash(
                 updateProfileDto.password,
                 10,
             );
+            updatedData.password = hashedPassword;
         }
 
         const updatedUser = await this.prismaService.user.update({
