@@ -1,0 +1,112 @@
+{
+    "data": [
+        {
+            "name": "Courier Jakarta",
+            "email": "courier.jakarta@mail.com",
+            "password": "password123",
+            "phoneNumber": "081312345678",
+            "roleKey": "courier",
+            "branchName": "Cabang Jakarta Pusat",
+            "type": "courier"
+        },
+        {
+            "name": "Admin Branch Jakarta",
+            "email": "adminbranch.jakarta@mail.com",
+            "password": "password123",
+            "phoneNumber": "08444444444",
+            "roleKey": "admin-branch",
+            "branchName": "Cabang Jakarta Pusat",
+            "type": "admin"
+        },
+        {
+            "name": "Courier Surabaya",
+            "email": "courier.surabaya@mail.com",
+            "password": "password123",
+            "phoneNumber": "081412345678",
+            "roleKey": "courier",
+            "branchName": "Cabang Surabaya Pusat",
+            "type": "courier"
+        },
+        {
+            "name": "Admin Branch Surabaya",
+            "email": "adminbranch.surabaya@mail.com",
+            "password": "password123",
+            "phoneNumber": "08555555555",
+            "roleKey": "admin-branch",
+            "branchName": "Cabang Surabaya Pusat",
+            "type": "admin"
+        },
+        {
+            "name": "Courier Bandung",
+            "email": "courier.bandung@mail.com",
+            "password": "password123",
+            "phoneNumber": "081512345678",
+            "roleKey": "courier",
+            "branchName": "Cabang Bandung Utara",
+            "type": "courier"
+        },
+        {
+            "name": "Admin Branch Bandung",
+            "email": "adminbranch.bandung@mail.com",
+            "password": "password123",
+            "phoneNumber": "08666666666",
+            "roleKey": "admin-branch",
+            "branchName": "Cabang Bandung Utara",
+            "type": "admin"
+        },
+        {
+            "name": "Courier Medan",
+            "email": "courier.medan@mail.com",
+            "password": "password123",
+            "phoneNumber": "081612345678",
+            "roleKey": "courier",
+            "branchName": "Cabang Medan Selatan",
+            "type": "courier"
+        },
+        {
+            "name": "Admin Branch Medan",
+            "email": "adminbranch.medan@mail.com",
+            "password": "password123",
+            "phoneNumber": "08777777777",
+            "roleKey": "admin-branch",
+            "branchName": "Cabang Medan Selatan",
+            "type": "admin"
+        },
+        {
+            "name": "Courier Bali",
+            "email": "courier.bali@mail.com",
+            "password": "password123",
+            "phoneNumber": "081712345678",
+            "roleKey": "courier",
+            "branchName": "Cabang Bali Denpasar",
+            "type": "courier"
+        },
+        {
+            "name": "Admin Branch Bali",
+            "email": "adminbranch.bali@mail.com",
+            "password": "password123",
+            "phoneNumber": "08888888888",
+            "roleKey": "admin-branch",
+            "branchName": "Cabang Bali Denpasar",
+            "type": "admin"
+        },
+        {
+            "name": "Courier Makassar",
+            "email": "courier.makassar@mail.com",
+            "password": "password123",
+            "phoneNumber": "081812345678",
+            "roleKey": "courier",
+            "branchName": "Cabang Makassar Panakkukang",
+            "type": "courier"
+        },
+        {
+            "name": "Admin Branch Makassar",
+            "email": "adminbranch.makassar@mail.com",
+            "password": "password123",
+            "phoneNumber": "08999999999",
+            "roleKey": "admin-branch",
+            "branchName": "Cabang Makassar Panakkukang",
+            "type": "admin"
+        }
+    ]
+}
