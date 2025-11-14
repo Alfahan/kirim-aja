@@ -1,0 +1,34 @@
+{
+    "data": [
+        {
+            "name": "Cabang Jakarta Pusat",
+            "address": "Jl. Sudirman No.123, Jakarta Pusat, DKI Jakarta",
+            "phoneNumber": "08121234567"
+        },
+        {
+            "name": "Cabang Surabaya Pusat",
+            "address": "Jl. Tunjungan No.45, Surabaya, Jawa Timur",
+            "phoneNumber": "081312345678"
+        },
+        {
+            "name": "Cabang Bandung Utara",
+            "address": "Jl. Dago No.78, Bandung, Jawa Barat",
+            "phoneNumber": "082112345678"
+        },
+        {
+            "name": "Cabang Medan Selatan",
+            "address": "Jl. Sisingamangaraja No.56, Medan, Sumatera Utara",
+            "phoneNumber": "081412345678"
+        },
+        {
+            "name": "Cabang Bali Denpasar",
+            "address": "Jl. Hayam Wuruk No.34, Denpasar, Bali",
+            "phoneNumber": "081512345678"
+        },
+        {
+            "name": "Cabang Makassar Panakkukang",
+            "address": "Jl. Metro Tj. Bunga No.12, Makassar, Sulawesi Selatan",
+            "phoneNumber": "081612345678"
+        }
+    ]
+}
