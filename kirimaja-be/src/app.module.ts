@@ -8,6 +8,7 @@ import { JwtAuthGuard } from './modules/auth/guard/logged-in-guard';
 import { ProfileModule } from './modules/profile/profile.module';
 import { BranchesModule } from './modules/branches/branches.module';
 import { EmployeeBranchesModule } from './modules/employee-branches/employee-branches.module';
+import { UserAddressModule } from './modules/user-address/user-address.module';
 
 @Module({
     imports: [
@@ -17,6 +18,7 @@ import { EmployeeBranchesModule } from './modules/employee-branches/employee-bra
         ProfileModule,
         BranchesModule,
         EmployeeBranchesModule,
+        UserAddressModule,
     ],
     controllers: [AppController],
     providers: [AppService, JwtAuthGuard],
