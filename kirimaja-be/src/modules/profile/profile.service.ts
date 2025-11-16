@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { UpdateProfileDto } from './dto/update-profile.dto';
-import { PrismaService } from 'src/common/prisma/prisma.service';
+import { PrismaService } from '../../common/prisma/prisma.service';
 import { ProfileResponse } from './response/profile.response';
 import { plainToInstance } from 'class-transformer';
 import * as bcrypt from 'bcrypt';

@@ -5,8 +5,8 @@ import {
 } from '@nestjs/common';
 import { CreateUserAddressDto } from './dto/create-user-address.dto';
 import { UpdateUserAddressDto } from './dto/update-user-address.dto';
-import { PrismaService } from 'src/common/prisma/prisma.service';
-import { OpenStreetService } from 'src/common/openstreetmap/openstreet.service';
+import { PrismaService } from '../../common/prisma/prisma.service';
+import { OpenStreetService } from '../../common/openstreetmap/openstreet.service';
 import { UserAddress } from '@prisma/client';
 
 @Injectable()
