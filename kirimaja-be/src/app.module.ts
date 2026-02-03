@@ -9,6 +9,7 @@ import { ProfileModule } from './modules/profile/profile.module';
 import { BranchesModule } from './modules/branches/branches.module';
 import { EmployeeBranchesModule } from './modules/employee-branches/employee-branches.module';
 import { UserAddressModule } from './modules/user-address/user-address.module';
+import { ShipmentsModule } from './modules/shipments/shipments.module';
 
 @Module({
     imports: [
@@ -19,6 +20,7 @@ import { UserAddressModule } from './modules/user-address/user-address.module';
         BranchesModule,
         EmployeeBranchesModule,
         UserAddressModule,
+        ShipmentsModule,
     ],
     controllers: [AppController],
     providers: [AppService, JwtAuthGuard],
